@@ -1,0 +1,53 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        button {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="{% url 'logout' %}">
+            <button class="btn btn-danger">Logout</button>
+        </form>
+        <form action="{% url 'resume_list' %}">
+            <button class="btn btn-secondary">Resume List</button>
+        </form>
+        <form method="post">
+            <h1><center>Resume Builder</center></h1>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <center><button type="submit" class="btn btn-primary">Submit</button></center>
+        </form>
+        {% if messages %}
+        {% for message in messages %}
+        <script>
+            alert("{{ message }}")
+        </script>
+        {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
