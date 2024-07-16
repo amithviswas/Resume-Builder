@@ -15,9 +15,6 @@ This Resume Builder project allows users to create professional resumes by filli
 ## Development Environment
 The project was developed in the PyCharm IDE.
 
-## Hosting
-The project is hosted online. You can view the live project at [Project URL](#). *(Replace `#` with the actual URL if hosted)*
-
 ## How to Run the Project Locally
 1. Clone the repository:
    ```sh
